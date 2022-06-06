@@ -149,12 +149,8 @@
             <span class="n">hpc</span> <span class="o">=</span> <span class="n">job</span><span class="p">[</span><span class="s1">&#39;hpc&#39;</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">hpcPassword</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span>
-                <span class="s1">&#39;⚠️ HPC password input detected, change your code&#39;</span> <span class="o">+</span>
-                <span class="s1">&#39;to use .get_job_by_id() instead&#39;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span>
-                <span class="s1">&#39;🙅‍♂️ it</span><span class="se">\&#39;</span><span class="s1">s not safe to distribute code with&#39;</span> <span class="o">+</span>
-                <span class="s1">&#39;login credentials&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;⚠️ HPC password input detected, change your code to use .get_job_by_id() instead&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;🙅‍♂️ it</span><span class="se">\&#39;</span><span class="s1">s not safe to distribute code with login credentials&#39;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hpc</span> <span class="o">=</span> <span class="n">hpc</span>
@@ -403,10 +399,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;missing job ID, submit/register job first&#39;</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
-            <span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/job/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="s1">&#39;/result-folder-content&#39;</span><span class="p">,</span> <span class="p">{</span>
-                <span class="s1">&#39;accessToken&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">JAT</span><span class="o">.</span><span class="n">getAccessToken</span><span class="p">()</span>
-                <span class="p">})</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/job/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="s1">&#39;/result-folder-content&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;accessToken&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">JAT</span><span class="o">.</span><span class="n">getAccessToken</span><span class="p">()})</span>
         <span class="k">return</span> <span class="n">out</span></div>
 
 <div class="viewcode-block" id="Job.download_result_folder"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.Job.Job.download_result_folder">[docs]</a>    <span class="k">def</span> <span class="nf">download_result_folder</span><span class="p">(</span>
@@ -448,12 +441,7 @@
             <span class="k">while</span> <span class="n">status</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SUCCEEDED&#39;</span><span class="p">,</span> <span class="s1">&#39;FAILED&#39;</span><span class="p">]:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_clear</span><span class="p">()</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;⏳ waiting for file to download using Globus&#39;</span><span class="p">)</span>
-                <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
-                    <span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/file/result-folder/globus-download&#39;</span><span class="p">,</span> <span class="p">{</span>
-                        <span class="s2">&quot;accessToken&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">JAT</span><span class="o">.</span><span class="n">getAccessToken</span><span class="p">(),</span>
-                        <span class="s2">&quot;downloadTo&quot;</span><span class="p">:</span> <span class="n">jobStatus</span><span class="p">[</span><span class="s1">&#39;resultFolder&#39;</span><span class="p">],</span>
-                        <span class="s2">&quot;downloadFrom&quot;</span><span class="p">:</span> <span class="n">remotePath</span>
-                        <span class="p">})</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/file/result-folder/globus-download&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;accessToken&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">JAT</span><span class="o">.</span><span class="n">getAccessToken</span><span class="p">(),</span> <span class="s2">&quot;downloadTo&quot;</span><span class="p">:</span> <span class="n">jobStatus</span><span class="p">[</span><span class="s1">&#39;resultFolder&#39;</span><span class="p">],</span> <span class="s2">&quot;downloadFrom&quot;</span><span class="p">:</span> <span class="n">remotePath</span><span class="p">})</span>
                 <span class="n">status</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
                 <span class="k">if</span> <span class="n">raw</span><span class="p">:</span>
                     <span class="k">return</span> <span class="n">out</span>
@@ -484,10 +472,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;missing job ID, submit/register job first&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
-            <span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/file/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="s1">&#39;/globus_task_status&#39;</span><span class="p">,</span> <span class="p">{</span>
-                <span class="s1">&#39;accessToken&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">JAT</span><span class="o">.</span><span class="n">getAccessToken</span><span class="p">()</span>
-                <span class="p">})</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/file/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="s1">&#39;/globus_task_status&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;accessToken&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">JAT</span><span class="o">.</span><span class="n">getAccessToken</span><span class="p">()})</span></div>
 
     <span class="c1"># Integrated functions</span>
 

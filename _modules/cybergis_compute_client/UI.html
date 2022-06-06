@@ -160,9 +160,7 @@
             <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;# Welcome to CyberGIS-Compute&#39;</span><span class="p">))</span>
             <span class="n">display</span><span class="p">(</span>
                 <span class="n">Markdown</span><span class="p">(</span>
-                    <span class="s1">&#39;A scalable middleware framework for enabling&#39;</span>
-                    <span class="o">+</span> <span class="s1">&#39;high-performance and data-intensive geospatial&#39;</span>
-                    <span class="o">+</span> <span class="s1">&#39;research and education on CyberGIS-Jupyter&#39;</span><span class="p">))</span>
+                    <span class="s1">&#39;A scalable middleware framework for enabling high-performance and data-intensive geospatial research and education on CyberGIS-Jupyter&#39;</span><span class="p">))</span>
             <span class="n">display</span><span class="p">(</span><span class="n">divider</span><span class="p">)</span>
             <span class="n">display</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jobTemplate</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">])</span>
             <span class="n">display</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">])</span>
@@ -311,9 +309,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span><span class="s1">&#39;slurm_input_rules&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="p">{}:</span>
             <span class="k">return</span>
         <span class="c1"># create components</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
-            <span class="n">value</span><span class="o">=</span><span class="s1">&#39;All configs are optional. Please refer to Slurm official&#39;</span> <span class="o">+</span>
-            <span class="s1">&#39;documentation at 🔗 https://slurm.schedmd.com/sbatch.html&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;All configs are optional. Please refer to Slurm official documentation at 🔗 https://slurm.schedmd.com/sbatch.html&#39;</span><span class="p">)</span>
         <span class="c1"># settings</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm_configs</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span><span class="s1">&#39;slurm_input_rules&#39;</span><span class="p">]:</span>
@@ -363,10 +359,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Accordion</span><span class="p">(</span>
             <span class="n">children</span><span class="o">=</span><span class="p">(</span>
                 <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span>
-                    <span class="n">children</span><span class="o">=</span><span class="p">(</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;vbox&#39;</span><span class="p">])</span>
-                        <span class="p">),</span>
-                        <span class="p">),</span> <span class="n">selected_index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+                    <span class="n">children</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;vbox&#39;</span><span class="p">])),),</span> <span class="n">selected_index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Slurm Computing Configurations&#39;</span><span class="p">)</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]:</span>
             <span class="n">display</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">])</span></div>
@@ -590,9 +583,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">downloading</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">download_result_folder</span><span class="p">(</span>
                     <span class="n">remotePath</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;dropdown&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span>
-                    <span class="s1">&#39;please check your data at your root folder under &quot;&#39;</span>
-                    <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;please check your data at your root folder under &quot;&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">recentDownloadPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;container_home_path&#39;</span><span class="p">],</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span><span class="p">)</span>
@@ -647,14 +638,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;root_path&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span><span class="p">)</span>
 
             <span class="c1"># submit</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-                <span class="n">executableFolder</span><span class="o">=</span><span class="s1">&#39;git://&#39;</span>
-                <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;job_template&#39;</span><span class="p">],</span>
-                <span class="n">dataFolder</span><span class="o">=</span><span class="n">dataFolder</span><span class="p">,</span>
-                <span class="n">resultFolder</span><span class="o">=</span><span class="n">resultFolder</span><span class="p">,</span>
-                <span class="n">printJob</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                <span class="n">param</span><span class="o">=</span><span class="n">param</span><span class="p">,</span>
-                <span class="n">slurm</span><span class="o">=</span><span class="n">slurm</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">executableFolder</span><span class="o">=</span><span class="s1">&#39;git://&#39;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;job_template&#39;</span><span class="p">],</span> <span class="n">dataFolder</span><span class="o">=</span><span class="n">dataFolder</span><span class="p">,</span> <span class="n">resultFolder</span><span class="o">=</span><span class="n">resultFolder</span><span class="p">,</span> <span class="n">printJob</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">param</span><span class="o">=</span><span class="n">param</span><span class="p">,</span> <span class="n">slurm</span><span class="o">=</span><span class="n">slurm</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">tab</span><span class="o">.</span><span class="n">selected_index</span> <span class="o">=</span> <span class="mi">1</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">submitted</span> <span class="o">=</span> <span class="kc">True</span>
