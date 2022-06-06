@@ -164,7 +164,8 @@ An inteface that handles requests made to different servers</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.Client.Client.download">
 <span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">localDir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/Client.html#Client.download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.Client.Client.download" title="Permalink to this definition"></a></dt>
-<dd><p>Downloads data from a request made to the specified uri onto the specifed path</p>
+<dd><p>Downloads data from a request made to the specified uri
+onto the specifed path</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -189,7 +190,8 @@ An inteface that handles requests made to different servers</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>methods</strong> (<em>str</em>) – type of request that needs to be made. For e.g “POST”</p></li>
+<li><p><strong>methods</strong> (<em>str</em>) – type of request that needs to be</p></li>
+<li><p><strong>&quot;POST&quot;</strong> (<em>made. For e.g</em>) – </p></li>
 <li><p><strong>uri</strong> (<em>str</em>) – uri of the server</p></li>
 <li><p><strong>body</strong> (<em>str</em>) – data that needs to be sent</p></li>
 </ul>
@@ -601,19 +603,27 @@ object that serves as an entry point to the Globus Data Transfer Tool</p>
 An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>compute</strong> (<a class="reference internal" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute" title="cybergis_compute_client.CyberGISCompute.CyberGISCompute"><em>CyberGISCompute</em></a>) – compute instance that was initialized by the user</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>compute</strong> (<a class="reference internal" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute" title="cybergis_compute_client.CyberGISCompute.CyberGISCompute"><em>CyberGISCompute</em></a>) – compute instance</p></li>
+<li><p><strong>user</strong> (<em>that was initialized by the</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.GlobusUtil.GlobusUtil.compute">
 <span class="sig-name descname"><span class="pre">compute</span></span><a class="headerlink" href="#cybergis_compute_client.GlobusUtil.GlobusUtil.compute" title="Permalink to this definition"></a></dt>
-<dd><p>instance of CyberGISCompute that was initialized earlier</p>
+<dd><p>instance of CyberGISCompute</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute" title="cybergis_compute_client.CyberGISCompute.CyberGISCompute">CyberGISCompute</a></p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">that</span> <span class="pre">was</span> <span class="pre">initialized</span> <span class="pre">earlier</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.GlobusUtil.GlobusUtil.download">
@@ -624,7 +634,8 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>endpoint</strong> (<em>str</em>) – endpoint that needs to be accessed</p></li>
 <li><p><strong>path</strong> (<em>str</em>) – path to endpoint</p></li>
-<li><p><strong>hpc</strong> (<em>str</em>) – hpc resource where the endpoint is located. For e.g “keeling-community”</p></li>
+<li><p><strong>hpc</strong> (<em>str</em>) – hpc resource where the endpoint is</p></li>
+<li><p><strong>&quot;keeling-community&quot;</strong> (<em>located. For e.g</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -637,16 +648,14 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dt class="sig sig-object py" id="cybergis_compute_client.GlobusUtil.GlobusUtil.upload">
 <span class="sig-name descname"><span class="pre">upload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hpc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/GlobusUtil.html#GlobusUtil.upload"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.GlobusUtil.GlobusUtil.upload" title="Permalink to this definition"></a></dt>
 <dd><p>Sends an upload request to Globus API</p>
+<p>Args:
+endpoint (str) : endpoint that needs to be accessed
+path (str) : path to endpoint
+hpc (str) : hpc resource where the
+endpoint is located. For e.g “keeling-community”</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>endpoint</strong> (<em>str</em>) – endpoint that needs to be accessed</p></li>
-<li><p><strong>path</strong> (<em>str</em>) – path to endpoint</p></li>
-<li><p><strong>hpc</strong> (<em>str</em>) – hpc resource where the endpoint is located. For e.g “keeling-community”</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -663,9 +672,11 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>accessTokenCache</strong> (<em>dict</em>) – All cached access tokens with the dates submitted as keys</p></li>
+<li><p><strong>accessTokenCache</strong> (<em>dict</em>) – All cached access tokens with the dates</p></li>
+<li><p><strong>keys</strong> (<em>submitted as</em>) – </p></li>
 <li><p><strong>id</strong> (<em>str</em>) – Unique identifier for the job (assigned by the client)</p></li>
-<li><p><strong>secretToken</strong> (<em>str</em>) – Token to generate JAT signature (provided by the client)</p></li>
+<li><p><strong>secretToken</strong> (<em>str</em>) – Token to generate</p></li>
+<li><p><strong>signature</strong> (<a class="reference internal" href="#cybergis_compute_client.JAT.JAT" title="cybergis_compute_client.JAT.JAT"><em>JAT</em></a>) – </p></li>
 <li><p><strong>algorithm</strong> (<em>str</em>) – Algorithm used to hash the signature</p></li>
 </ul>
 </dd>
@@ -673,7 +684,7 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.JAT.JAT.accessTokenCache">
 <span class="sig-name descname"><span class="pre">accessTokenCache</span></span><a class="headerlink" href="#cybergis_compute_client.JAT.JAT.accessTokenCache" title="Permalink to this definition"></a></dt>
-<dd><p>All cached access tokens with the date submitted as keys</p>
+<dd><p>All cached access tokens with the date</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>dict</p>
@@ -682,20 +693,30 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">submitted</span> <span class="pre">as</span> <span class="pre">keys</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.JAT.JAT.id">
 <span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#cybergis_compute_client.JAT.JAT.id" title="Permalink to this definition"></a></dt>
-<dd><p>Unique identifier for the job assigned by the client</p>
+<dd><p>Unique identifier for the job assigned</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">by</span> <span class="pre">the</span> <span class="pre">client</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.JAT.JAT.secretToken">
 <span class="sig-name descname"><span class="pre">secretToken</span></span><a class="headerlink" href="#cybergis_compute_client.JAT.JAT.secretToken" title="Permalink to this definition"></a></dt>
-<dd><p>Token to generate JAT signature provided by the client</p>
+<dd><p>Token to generate JAT signature</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>str</p>
@@ -704,9 +725,14 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">provided</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">client</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.JAT.JAT.algorithm">
 <span class="sig-name descname"><span class="pre">algorithm</span></span><a class="headerlink" href="#cybergis_compute_client.JAT.JAT.algorithm" title="Permalink to this definition"></a></dt>
-<dd><p>Algorithm used to hash the signature</p>
+<dd><p>Algorithm used to hash</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>str</p>
@@ -714,13 +740,20 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">the</span> <span class="pre">signature</span></span></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.JAT.JAT.getAccessToken">
 <span class="sig-name descname"><span class="pre">getAccessToken</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/JAT.html#JAT.getAccessToken"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.JAT.JAT.getAccessToken" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the access token signaure of this job, and adds it to the cache if it is not already there</p>
+<dd><p>Returns the access token signaure of this job,
+and adds it to the cache if it is not already there</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Access token signature, in the form of 4 Base64-URL strings separated by dots</p>
+<dd class="field-odd"><p>Access token signature,
+in the form of 4 Base64-URL strings separated by dots</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
@@ -770,13 +803,19 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.JAT.JAT.parseAccessToken">
 <span class="sig-name descname"><span class="pre">parseAccessToken</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accessToken</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/JAT.html#JAT.parseAccessToken"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.JAT.JAT.parseAccessToken" title="Permalink to this definition"></a></dt>
-<dd><p>Returns decoded information from the access token in the form of a dictionary</p>
+<dd><p>Returns decoded information from the access
+token in the form of a dictionary</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>accessToken</strong> (<em>str</em>) – The job’s access token, in the form of 4 Base64-URL strings separated by dots</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>accessToken</strong> (<em>str</em>) – The job’s access token,</p></li>
+<li><p><strong>dots</strong> (<em>in the form of 4 Base64-URL strings separated by</em>) – </p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Algorithm, payload (both encoded and decoded), id, and the hash associated with a job’s secret token, id, and payload.</p>
+<dd class="field-even"><p>Algorithm, payload (both encoded and decoded),
+id, and the hash associated with a job’s secret token,
+id, and payload.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
@@ -845,13 +884,18 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.Job.Job.jupyterhubApiToken">
 <span class="sig-name descname"><span class="pre">jupyterhubApiToken</span></span><a class="headerlink" href="#cybergis_compute_client.Job.Job.jupyterhubApiToken" title="Permalink to this definition"></a></dt>
-<dd><p>API token needed to send requests using the JupyterHub API</p>
+<dd><p>API token needed to send requests</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">using</span> <span class="pre">the</span> <span class="pre">JupyterHub</span> <span class="pre">API</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.Job.Job.id">
@@ -883,13 +927,15 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.Job.Job.downloadResultFolder">
 <span class="sig-name descname"><span class="pre">downloadResultFolder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/Job.html#Job.downloadResultFolder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.Job.Job.downloadResultFolder" title="Permalink to this definition"></a></dt>
-<dd><p>Downloads the result folder and returns information about it</p>
+<dd><p>Downloads the result folder and returns
+information about it</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>(</strong><strong>dir</strong><strong>)</strong> – Location to download the files to</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Output from the client when downloading the results using globus.</p>
+<dd class="field-even"><p>Output from the client when downloading
+the results using globus.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
@@ -906,11 +952,13 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>localPath</strong> (<em>string</em>) – Path to the local result folder</p></li>
 <li><p><strong>remotePath</strong> (<em>string</em>) – Path to the remote result folder</p></li>
-<li><p><strong>raw</strong> (<em>bool</em>) – If the function should return the output from the client</p></li>
+<li><p><strong>raw</strong> (<em>bool</em>) – If the function should return the</p></li>
+<li><p><strong>client</strong> (<em>output from the</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Output from the client when downloading the results using globus. Only returned when raw is true.</p>
+<dd class="field-even"><p>Output from the client when downloading the
+results using globus. Only returned when raw is true.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
@@ -932,10 +980,12 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>raw</strong> (<em>bool</em>) – If true, return a list of the events generated by status</p></li>
+<li><p><strong>raw</strong> (<em>bool</em>) – If true, return a list of the events</p></li>
+<li><p><strong>status</strong> (<em>refreshing</em>) – </p></li>
 <li><p><strong>liveOutput</strong> (<em>bool</em>) – </p></li>
 <li><p><strong>basic</strong> (<em>bool</em>) – If true, exclude non-basicEventType events</p></li>
-<li><p><strong>RefreshRateInSeconds</strong> (<em>int</em>) – Number of seconds to wait before refreshing status</p></li>
+<li><p><strong>RefreshRateInSeconds</strong> (<em>int</em>) – Number of seconds to wait before</p></li>
+<li><p><strong>status</strong> – </p></li>
 </ul>
 </dd>
 </dl>
@@ -948,13 +998,16 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>raw</strong> (<em>bool</em>) – If true, return a list of the events generated by status</p></li>
+<li><p><strong>raw</strong> (<em>bool</em>) – If true, return a list of the events</p></li>
+<li><p><strong>status</strong> (<em>before refreshing</em>) – </p></li>
 <li><p><strong>liveOutput</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>RefreshRateInSeconds</strong> (<em>int</em>) – Number of seconds to wait before refreshing status</p></li>
+<li><p><strong>RefreshRateInSeconds</strong> (<em>int</em>) – Number of seconds to wait</p></li>
+<li><p><strong>status</strong> – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>List of logs generated by the client. Only returned if raw is true.</p>
+<dd class="field-even"><p>List of logs generated by the client.
+Only returned if raw is true.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>list</p>
@@ -1000,7 +1053,9 @@ An inteface that handles all interactions with Globus Data Transfer Tool</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.Job.Job.set">
 <span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">executableFolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataFolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resultFolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slurm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">printJob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/Job.html#Job.set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.Job.Job.set" title="Permalink to this definition"></a></dt>
-<dd><p>PUT requests information about this job to the client so it can be submitted to the hpc. Displays information about this job unless
+<dd><p>PUT requests information about this job to the client
+so it can be submitted to the hpc. Displays information
+about this job unless
 specified otherwise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1026,7 +1081,10 @@ specified otherwise.</p>
 <dd class="field-odd"><p><strong>raw</strong> (<em>bool</em>) – If information about this job should be returned</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Infomation about this job returned by the client. This includes the job’s ‘id’, ‘hpc’, ‘executableFolder’, ‘dataFolder’, ‘resultFolder’, ‘param’, ‘slurm’, ‘userId’, ‘maintainer’, ‘createdAt’, and ‘events’</p>
+<dd class="field-even"><p>Infomation about this job returned by
+the client. This includes the job’s ‘id’, ‘hpc’,
+‘executableFolder’, ‘dataFolder’, ‘resultFolder’,
+‘param’, ‘slurm’, ‘userId’, ‘maintainer’, ‘createdAt’, and ‘events’</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
@@ -1054,7 +1112,8 @@ specified otherwise.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.Job.Job.upload_executable_folder">
 <span class="sig-name descname"><span class="pre">upload_executable_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/Job.html#Job.upload_executable_folder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.Job.Job.upload_executable_folder" title="Permalink to this definition"></a></dt>
-<dd><p>Uploads executable folder to client, sets the path of the executable folder, and displays the status of the job.</p>
+<dd><p>Uploads executable folder to client, sets the path of the executable
+folder, and displays the status of the job.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>(</strong><strong>str</strong><strong>)</strong> – Path of the executable folder</p>
@@ -1252,10 +1311,12 @@ specified otherwise.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.get_data">
 <span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/UI.html#UI.get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.UI.UI.get_data" title="Permalink to this definition"></a></dt>
-<dd><p>Get data about the job submitted (template, computing resource used, slurm rules, param rules, user email)</p>
+<dd><p>Get data about the job submitted (template, computing resource used,
+slurm rules, param rules, user email)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Information about the job submitted (template, computing resource used, slurm rules, param rules, user email)</p>
+<dd class="field-odd"><p>Information about the job submitted (template,
+computing resource used, slurm rules, param rules, user email)</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -1266,7 +1327,8 @@ specified otherwise.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.init">
 <span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/UI.html#UI.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.UI.UI.init" title="Permalink to this definition"></a></dt>
-<dd><p>Initialization helper function that sets default arguments. Runs when the UI is rendered.</p>
+<dd><p>Initialization helper function that
+sets default arguments. Runs when the UI is rendered.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1346,7 +1408,8 @@ specified otherwise.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.renderResultLogs">
 <span class="sig-name descname"><span class="pre">renderResultLogs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/UI.html#UI.renderResultLogs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.UI.UI.renderResultLogs" title="Permalink to this definition"></a></dt>
-<dd><p>Display when the job is finished and rerender the download section when it is.</p>
+<dd><p>Display when the job is finished and
+rerender the download section when it is.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1364,7 +1427,8 @@ specified otherwise.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.renderSubmit">
 <span class="sig-name descname"><span class="pre">renderSubmit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/UI.html#UI.renderSubmit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.UI.UI.renderSubmit" title="Permalink to this definition"></a></dt>
-<dd><p>Render submit button. If the job has been submitted, display that, otherwise display the submit button.</p>
+<dd><p>Render submit button. If the job has been submitted,
+display that, otherwise display the submit button.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1397,7 +1461,8 @@ specified otherwise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>unit</strong> (<em>string</em>) – The unit of the time being passed (Minutes, Hours, or Days)</p></li>
+<li><p><strong>unit</strong> (<em>string</em>) – The unit of the time being</p></li>
+<li><p><strong>passed</strong> (<em>Minutes</em><em>, </em><em>Hours</em><em>, or </em><em>Days</em>) – </p></li>
 <li><p><strong>time</strong> (<em>int</em>) – The time in that specific unit</p></li>
 </ul>
 </dd>
@@ -1434,12 +1499,14 @@ avoid disk access</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.Zip.Zip.append">
 <span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename_in_zip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_contents</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/Zip.html#Zip.append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.Zip.Zip.append" title="Permalink to this definition"></a></dt>
-<dd><p>Appends a file with name filename_in_zip and contents of file_contents to the in-memory zip.</p>
+<dd><p>Appends a file with name filename_in_zip and
+contents of file_contents to the in-memory zip.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename_in_zip</strong> (<em>str</em>) – Name of the zip_file</p></li>
-<li><p><strong>file_contents</strong> (<em>str</em>) – Contents that need to be written to the zip_file</p></li>
+<li><p><strong>file_contents</strong> (<em>str</em>) – Contents that need to be written</p></li>
+<li><p><strong>zip_file</strong> (<em>to the</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

@@ -84,13 +84,13 @@
 <div class="viewcode-block" id="Zip"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.Zip.Zip">[docs]</a><span class="k">class</span> <span class="nc">Zip</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Zip class</span>
-<span class="sd">    </span>
+
 <span class="sd">    An interface that creates an in-memory zip object to</span>
 <span class="sd">    avoid disk access</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        None</span>
-<span class="sd">    </span>
+
 <span class="sd">    Attributes:</span>
 <span class="sd">        in_memory_zip: A BytesIO in-memory file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -102,21 +102,23 @@
 <div class="viewcode-block" id="Zip.mkdir"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.Zip.Zip.mkdir">[docs]</a>    <span class="k">def</span> <span class="nf">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filedir_in_zip</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a directory with the name filedir_in_zip</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            fildir_in_zip(str): Name of the zip_directory</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            obj: this Zip</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Get a handle to the in-memory zip in append mode</span>
-        <span class="n">zf</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_memory_zip</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">zf</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">in_memory_zip</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 
         <span class="c1"># Writes a directory to the in-memory zip</span>
-        <span class="n">zf</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="n">filedir_in_zip</span> <span class="o">+</span> <span class="s1">&#39;/.placeholder&#39;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">)</span>
+        <span class="n">zf</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span>
+            <span class="n">filedir_in_zip</span> <span class="o">+</span> <span class="s1">&#39;/.placeholder&#39;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">)</span>
 
         <span class="c1"># Mark the files as having been created on Windows so that</span>
-        <span class="c1"># Unix permissions are not inferred as 0000</span>
+        <span class="c1"># # Unix permissions are not inferred as 0000</span>
         <span class="k">for</span> <span class="n">zfile</span> <span class="ow">in</span> <span class="n">zf</span><span class="o">.</span><span class="n">filelist</span><span class="p">:</span>
             <span class="n">zfile</span><span class="o">.</span><span class="n">create_system</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -124,23 +126,26 @@
 
 <div class="viewcode-block" id="Zip.append"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.Zip.Zip.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename_in_zip</span><span class="p">,</span> <span class="n">file_contents</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Appends a file with name filename_in_zip and contents of file_contents to the in-memory zip.</span>
-<span class="sd">        </span>
+<span class="sd">        Appends a file with name filename_in_zip and</span>
+<span class="sd">        contents of file_contents to the in-memory zip.</span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            filename_in_zip(str): Name of the zip_file</span>
-<span class="sd">            file_contents(str): Contents that need to be written to the zip_file</span>
-<span class="sd">        </span>
+<span class="sd">            file_contents(str): Contents that need to be written</span>
+<span class="sd">            to the zip_file</span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            obj: this Zip</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Get a handle to the in-memory zip in append mode</span>
-        <span class="n">zf</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_memory_zip</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">zf</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">in_memory_zip</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 
         <span class="c1"># Write the file to the in-memory zip</span>
-        <span class="n">zf</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="n">filename_in_zip</span><span class="p">,</span> <span class="n">file_contents</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">)</span>
+        <span class="c1"># zf.writestr(filename_in_zip, file_contents, zipfile.ZIP_DEFLATED)</span>
 
         <span class="c1"># Mark the files as having been created on Windows so that</span>
-        <span class="c1"># Unix permissions are not inferred as 0000</span>
+        <span class="c1"># # Unix permissions are not inferred as 0000</span>
         <span class="k">for</span> <span class="n">zfile</span> <span class="ow">in</span> <span class="n">zf</span><span class="o">.</span><span class="n">filelist</span><span class="p">:</span>
             <span class="n">zfile</span><span class="o">.</span><span class="n">create_system</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -149,10 +154,10 @@
 <div class="viewcode-block" id="Zip.read"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.Zip.Zip.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the contents of the in-memory zip.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            None</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            str: contents of the in-memory zip</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -162,10 +167,10 @@
 <div class="viewcode-block" id="Zip.write"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.Zip.Zip.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Writes the in-memory zip to a file</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            filename(str): Name of the file that needs to be written</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            None</span>
 <span class="sd">        &quot;&quot;&quot;</span>

@@ -78,18 +78,24 @@
 <div class="viewcode-block" id="JAT"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.JAT.JAT">[docs]</a><span class="k">class</span> <span class="nc">JAT</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Job Access Token (JAT) class</span>
-<span class="sd">    </span>
+
 <span class="sd">    Args:</span>
-<span class="sd">        accessTokenCache (dict): All cached access tokens with the dates submitted as keys</span>
+<span class="sd">        accessTokenCache (dict): All cached access tokens with the dates</span>
+<span class="sd">        submitted as keys</span>
 <span class="sd">        id (str): Unique identifier for the job (assigned by the client)</span>
-<span class="sd">        secretToken (str): Token to generate JAT signature (provided by the client)</span>
+<span class="sd">        secretToken (str): Token to generate</span>
+<span class="sd">        JAT signature (provided by the client)</span>
 <span class="sd">        algorithm (str): Algorithm used to hash the signature</span>
-<span class="sd">    </span>
+
 <span class="sd">    Attributes:</span>
-<span class="sd">        accessTokenCache (dict): All cached access tokens with the date submitted as keys</span>
-<span class="sd">        id (str): Unique identifier for the job assigned by the client</span>
-<span class="sd">        secretToken (str): Token to generate JAT signature provided by the client</span>
-<span class="sd">        algorithm (str): Algorithm used to hash the signature</span>
+<span class="sd">        accessTokenCache (dict): All cached access tokens with the date</span>
+<span class="sd">        submitted as keys</span>
+<span class="sd">        id (str): Unique identifier for the job assigned</span>
+<span class="sd">        by the client</span>
+<span class="sd">        secretToken (str): Token to generate JAT signature</span>
+<span class="sd">        provided by the client</span>
+<span class="sd">        algorithm (str): Algorithm used to hash</span>
+<span class="sd">        the signature</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">accessTokenCache</span> <span class="o">=</span> <span class="p">{}</span>
@@ -99,7 +105,8 @@
 
 <div class="viewcode-block" id="JAT.init"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.JAT.JAT.init">[docs]</a>    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">algorithm</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">secretToken</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">algorithm</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">algorithms_available</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;encryption algorithm not supported by hashlib library&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s1">&#39;encryption algorithm not supported by hashlib library&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">secretToken</span> <span class="o">=</span> <span class="n">secretToken</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span> <span class="o">=</span> <span class="n">algorithm</span>
@@ -108,25 +115,28 @@
 <div class="viewcode-block" id="JAT.hash"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.JAT.JAT.hash">[docs]</a>    <span class="k">def</span> <span class="nf">hash</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">payload</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructs a compact access token with the given payload</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            payload (str): payload to be hashed</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            str: hashed payload</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_checkInit</span><span class="p">()</span>
         <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span><span class="p">)</span>
-        <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">secretToken</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf_8&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf_8&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">payload</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf_8&#39;</span><span class="p">))</span>
+        <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">secretToken</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf_8&#39;</span><span class="p">)</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf_8&#39;</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">payload</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf_8&#39;</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="JAT.getDate"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.JAT.JAT.getDate">[docs]</a>    <span class="k">def</span> <span class="nf">getDate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the current date (year, month, day, hour)</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            none</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            str: The current date</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -134,10 +144,12 @@
 
 <div class="viewcode-block" id="JAT.getAccessToken"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.JAT.JAT.getAccessToken">[docs]</a>    <span class="k">def</span> <span class="nf">getAccessToken</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the access token signaure of this job, and adds it to the cache if it is not already there</span>
+<span class="sd">        Returns the access token signaure of this job,</span>
+<span class="sd">        and adds it to the cache if it is not already there</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            str: Access token signature, in the form of 4 Base64-URL strings separated by dots</span>
+<span class="sd">            str: Access token signature,</span>
+<span class="sd">            in the form of 4 Base64-URL strings separated by dots</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_checkInit</span><span class="p">()</span>
         <span class="n">date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDate</span><span class="p">()</span>
@@ -160,13 +172,17 @@
 
 <div class="viewcode-block" id="JAT.parseAccessToken"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.JAT.JAT.parseAccessToken">[docs]</a>    <span class="k">def</span> <span class="nf">parseAccessToken</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessToken</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns decoded information from the access token in the form of a dictionary</span>
-<span class="sd">        </span>
+<span class="sd">        Returns decoded information from the access</span>
+<span class="sd">        token in the form of a dictionary</span>
+
 <span class="sd">        Args:</span>
-<span class="sd">            accessToken (str): The job&#39;s access token, in the form of 4 Base64-URL strings separated by dots</span>
-<span class="sd">        </span>
+<span class="sd">            accessToken (str): The job&#39;s access token,</span>
+<span class="sd">            in the form of 4 Base64-URL strings separated by dots</span>
+
 <span class="sd">        Returns:</span>
-<span class="sd">            dict: Algorithm, payload (both encoded and decoded), id, and the hash associated with a job&#39;s secret token, id, and payload.</span>
+<span class="sd">            dict: Algorithm, payload (both encoded and decoded),</span>
+<span class="sd">            id, and the hash associated with a job&#39;s secret token,</span>
+<span class="sd">            id, and payload.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">aT</span> <span class="o">=</span> <span class="n">accessToken</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aT</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">):</span>
@@ -185,22 +201,24 @@
     <span class="k">def</span> <span class="nf">_encodeDict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Encodes a dictionary into a Base64-URL</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            target (dict): the dictionary to be encoded</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            str: the Base64-URL encoded target</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">b64encode</span><span class="p">(</span><span class="n">dumps</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">b64encode</span><span class="p">(</span>
+            <span class="n">dumps</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">))</span>
+            <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_decodeDict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Decodes a Base64_URL into a dictionary</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            target (str): Base64-URL to be decoded into a text dictionary</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            dict: Dictionary decoded from the passed target</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -209,10 +227,10 @@
     <span class="k">def</span> <span class="nf">_encodeString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Encodes a string into a Base64_URL string</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            target (str): Text string to be encoded into a Base64-URL string</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            str: The Base64-URL encoded target</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -221,10 +239,10 @@
     <span class="k">def</span> <span class="nf">_decodeString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Decodes a Base64_URL string</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            target (str): The Base64-URL encoded target</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            str: String decoded from the passed target</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -232,8 +250,9 @@
 
     <span class="k">def</span> <span class="nf">_checkInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Checks that the init function has succesfully assigned algorithm and secretToken to a non-None value</span>
-<span class="sd">        </span>
+<span class="sd">        Checks that the init function has succesfully assigned algorithm</span>
+<span class="sd">        and secretToken to a non-None value</span>
+
 <span class="sd">        Raises:</span>
 <span class="sd">            Exception: If &#39;algorithm&#39; or &#39;secretToken&#39; is None</span>
 <span class="sd">        &quot;&quot;&quot;</span>

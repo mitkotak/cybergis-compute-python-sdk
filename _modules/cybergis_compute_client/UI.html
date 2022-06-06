@@ -299,7 +299,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;vbox&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 
         <span class="c1"># settings end</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Accordion</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;vbox&#39;</span><span class="p">])),</span> <span class="p">),</span> <span class="n">selected_index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Accordion</span><span class="p">(</span>
+            <span class="n">children</span><span class="o">=</span><span class="p">(</span>
+                <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span>
+                    <span class="n">children</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">],</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;vbox&#39;</span><span class="p">])),</span>
+                    <span class="p">),</span> <span class="n">selected_index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Slurm Computing Configurations&#39;</span><span class="p">)</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]:</span>
             <span class="n">display</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">])</span></div>
@@ -314,11 +319,15 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span><span class="s1">&#39;require_upload_data&#39;</span><span class="p">]:</span>
             <span class="k">return</span>
         <span class="c1"># render all</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;selector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FileChooser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaultDataFolder</span><span class="p">,</span> <span class="n">select_default</span><span class="o">=</span><span class="kc">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultDataFolder</span> <span class="o">!=</span> <span class="s1">&#39;./&#39;</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;selector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FileChooser</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">defaultDataFolder</span><span class="p">,</span>
+            <span class="n">select_default</span><span class="o">=</span><span class="kc">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultDataFolder</span> <span class="o">!=</span> <span class="s1">&#39;./&#39;</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;selector&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">show_only_dirs</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;selector&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Job requires upload data. Please select a folder to upload&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;selector&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Job requires upload data.&#39;</span>
+        <span class="o">+</span> <span class="s1">&#39;Please select a folder to upload&#39;</span>
         <span class="c1"># settings end</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Accordion</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;selector&#39;</span><span class="p">],</span> <span class="p">),</span> <span class="n">selected_index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Accordion</span><span class="p">(</span>
+            <span class="n">children</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;selector&#39;</span><span class="p">],</span> <span class="p">),</span> <span class="n">selected_index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Upload Data&#39;</span><span class="p">)</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]:</span>
             <span class="n">display</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">])</span></div>
@@ -373,19 +382,23 @@
 
             <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;string_input&#39;</span><span class="p">:</span>
                 <span class="n">default_val</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;default_value&#39;</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">default_val</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
+                    <span class="n">description</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">default_val</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
 
         <span class="c1"># render all</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;vbox&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span><span class="s1">&#39;param_rules&#39;</span><span class="p">]])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;vbox&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span><span class="s1">&#39;param_rules&#39;</span><span class="p">]])</span>
         <span class="c1"># settings end</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Accordion</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;vbox&#39;</span><span class="p">],</span> <span class="p">),</span> <span class="n">selected_index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Accordion</span><span class="p">(</span>
+            <span class="n">children</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;vbox&#39;</span><span class="p">],</span> <span class="p">),</span> <span class="n">selected_index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Input Parameters&#39;</span><span class="p">)</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]:</span>
             <span class="n">display</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;accordion&#39;</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="UI.renderSubmit"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.UI.UI.renderSubmit">[docs]</a>    <span class="k">def</span> <span class="nf">renderSubmit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Render submit button. If the job has been submitted, display that, otherwise display the submit button.</span>
+<span class="sd">        Render submit button. If the job has been submitted,</span>
+<span class="sd">        display that, otherwise display the submit button.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">submit</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">submit</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
@@ -393,7 +406,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">submit</span><span class="p">[</span><span class="s1">&#39;alert_output&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
         <span class="c1"># create components</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">submitted</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">submit</span><span class="p">[</span><span class="s1">&#39;button&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Job Submitted ✅&quot;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">submit</span><span class="p">[</span><span class="s1">&#39;button&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+                <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Job Submitted ✅&quot;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">submit</span><span class="p">[</span><span class="s1">&#39;button&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Submit Job&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">submit</span><span class="p">[</span><span class="s1">&#39;button&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onSubmitButtonClick</span><span class="p">())</span>
@@ -417,14 +431,20 @@
             <span class="n">result_folder_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">result_folder_content</span><span class="p">()</span>
             <span class="c1"># push default value to front</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">result_folder_content</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">result_folder_content</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">result_folder_content</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaultRemoteResultFolder</span><span class="p">)))</span>
-            <span class="k">except</span><span class="p">:</span>
+                <span class="n">result_folder_content</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+                    <span class="mi">0</span><span class="p">,</span> <span class="n">result_folder_content</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+                        <span class="n">result_folder_content</span><span class="o">.</span><span class="n">index</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">defaultRemoteResultFolder</span><span class="p">)))</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
                 <span class="n">result_folder_content</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;dropdown&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">result_folder_content</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">result_folder_content</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;select file/folder&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;dropdown&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+                <span class="n">options</span><span class="o">=</span><span class="n">result_folder_content</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">result_folder_content</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">description</span><span class="o">=</span><span class="s1">&#39;select file/folder&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;button&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Download&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;button&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onDownloadButtonClick</span><span class="p">())</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;button&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Download&quot;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;button&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+                <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Download&quot;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobFinished</span><span class="p">:</span>
@@ -470,7 +490,8 @@
 
 <div class="viewcode-block" id="UI.renderResultLogs"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.UI.UI.renderResultLogs">[docs]</a>    <span class="k">def</span> <span class="nf">renderResultLogs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Display when the job is finished and rerender the download section when it is.</span>
+<span class="sd">        Display when the job is finished and</span>
+<span class="sd">        rerender the download section when it is.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resultLogs</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">resultLogs</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
@@ -491,27 +512,36 @@
 <div class="viewcode-block" id="UI.onDownloadButtonClick"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.UI.UI.onDownloadButtonClick">[docs]</a>    <span class="k">def</span> <span class="nf">onDownloadButtonClick</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Download the output data to the specified path and display the location.</span>
+<span class="sd">            Download the output data to the specified path</span>
+<span class="sd">            and display the location.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">downloading</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;alert_output&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                 <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;alert_output&#39;</span><span class="p">]:</span>
-                    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;⚠️ download process is running in background...&#39;</span><span class="p">))</span>
+                    <span class="n">display</span><span class="p">(</span>
+                        <span class="n">Markdown</span><span class="p">(</span>
+                            <span class="s1">&#39;⚠️ download process is running in background...&#39;</span><span class="p">))</span>
                     <span class="k">return</span>
 
             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;result_output&#39;</span><span class="p">]:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;alert_output&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">downloading</span> <span class="o">=</span> <span class="kc">True</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">download_result_folder</span><span class="p">(</span><span class="n">remotePath</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;dropdown&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;please check your data at your root folder under &quot;&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">recentDownloadPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;container_home_path&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">download_result_folder</span><span class="p">(</span>
+                    <span class="n">remotePath</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">[</span><span class="s1">&#39;dropdown&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="s1">&#39;please check your data at your root folder under &quot;&#39;</span>
+                    <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">recentDownloadPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;container_home_path&#39;</span><span class="p">],</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">downloading</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="n">on_click</span></div>
 
 <div class="viewcode-block" id="UI.onSubmitButtonClick"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.UI.UI.onSubmitButtonClick">[docs]</a>    <span class="k">def</span> <span class="nf">onSubmitButtonClick</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Submit the job, then rerender the result status, result events, result logs, and submit button.</span>
+<span class="sd">            Submit the job, then rerender the result status,</span>
+<span class="sd">            result events, result logs, and submit button.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">submitted</span><span class="p">:</span>
                 <span class="k">return</span>
@@ -525,14 +555,22 @@
                 <span class="n">dataFolder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">uploadData</span><span class="p">[</span><span class="s1">&#39;selector&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">selected</span>
                 <span class="k">if</span> <span class="n">dataFolder</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">submit</span><span class="p">[</span><span class="s1">&#39;alert_output&#39;</span><span class="p">]:</span>
-                        <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;⚠️ please select a folder before upload...&#39;</span><span class="p">))</span>
+                        <span class="n">display</span><span class="p">(</span>
+                            <span class="n">Markdown</span><span class="p">(</span>
+                                <span class="s1">&#39;⚠️ please select a folder before upload...&#39;</span><span class="p">))</span>
                         <span class="k">return</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">dataFolder</span> <span class="o">=</span> <span class="n">dataFolder</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;container_home_path&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-                    <span class="n">dataFolder</span> <span class="o">=</span> <span class="s1">&#39;globus://&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;endpoint&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;root_path&#39;</span><span class="p">],</span> <span class="n">dataFolder</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">))</span>
+                    <span class="n">dataFolder</span> <span class="o">=</span> <span class="n">dataFolder</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;container_home_path&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">),</span>
+                        <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                    <span class="n">dataFolder</span> <span class="o">=</span> <span class="s1">&#39;globus://&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;endpoint&#39;</span><span class="p">]</span>
+                    <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;root_path&#39;</span><span class="p">],</span>
+                        <span class="n">dataFolder</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">))</span>
 
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">create_job</span><span class="p">(</span><span class="n">hpc</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;computing_resource&#39;</span><span class="p">],</span> <span class="n">printJob</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">create_job</span><span class="p">(</span>
+                <span class="n">hpc</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;computing_resource&#39;</span><span class="p">],</span> <span class="n">printJob</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="c1"># slurm</span>
             <span class="n">slurm</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;slurm&#39;</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -542,21 +580,36 @@
             <span class="n">param</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;param&#39;</span><span class="p">]</span>
             <span class="c1"># download</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span> <span class="o">=</span> <span class="s1">&#39;globus_download_&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">id</span>
-            <span class="n">resultFolder</span> <span class="o">=</span> <span class="s1">&#39;globus://&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;endpoint&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;root_path&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span><span class="p">)</span>
+            <span class="n">resultFolder</span> <span class="o">=</span> <span class="s1">&#39;globus://&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;endpoint&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span>
+            <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">jupyter_globus</span><span class="p">[</span><span class="s1">&#39;root_path&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">globus_filename</span><span class="p">)</span>
 
             <span class="c1"># submit</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">executableFolder</span><span class="o">=</span><span class="s1">&#39;git://&#39;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;job_template&#39;</span><span class="p">],</span> <span class="n">dataFolder</span><span class="o">=</span><span class="n">dataFolder</span><span class="p">,</span> <span class="n">resultFolder</span><span class="o">=</span><span class="n">resultFolder</span><span class="p">,</span> <span class="n">printJob</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">param</span><span class="o">=</span><span class="n">param</span><span class="p">,</span> <span class="n">slurm</span><span class="o">=</span><span class="n">slurm</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+                <span class="n">executableFolder</span><span class="o">=</span><span class="s1">&#39;git://&#39;</span>
+                <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;job_template&#39;</span><span class="p">],</span>
+                <span class="n">dataFolder</span><span class="o">=</span><span class="n">dataFolder</span><span class="p">,</span>
+                <span class="n">resultFolder</span><span class="o">=</span><span class="n">resultFolder</span><span class="p">,</span>
+                <span class="n">printJob</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">param</span><span class="o">=</span><span class="n">param</span><span class="p">,</span>
+                <span class="n">slurm</span><span class="o">=</span><span class="n">slurm</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">tab</span><span class="o">.</span><span class="n">selected_index</span> <span class="o">=</span> <span class="mi">1</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">submitted</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;⏳ Your Job Status&#39;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">rerender</span><span class="p">([</span><span class="s1">&#39;resultStatus&#39;</span><span class="p">,</span> <span class="s1">&#39;resultEvents&#39;</span><span class="p">,</span> <span class="s1">&#39;resultLogs&#39;</span><span class="p">,</span> <span class="s1">&#39;submit&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rerender</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="s1">&#39;resultStatus&#39;</span><span class="p">,</span> <span class="s1">&#39;resultEvents&#39;</span><span class="p">,</span> <span class="s1">&#39;resultLogs&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;submit&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">on_click</span></div>
 
 <div class="viewcode-block" id="UI.onJobDropdownChange"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.UI.UI.onJobDropdownChange">[docs]</a>    <span class="k">def</span> <span class="nf">onJobDropdownChange</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">on_change</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            If the information in the dropdown is changed, modify the information in jobName, job, hpcName, and hpc to match. Then, rerender the description, computing resources, sulurn, param and upload data.</span>
+<span class="sd">            If the information in the dropdown is changed,</span>
+<span class="sd">            modify the information in jobName, job, hpcName,</span>
+<span class="sd">            and hpc to match. Then, rerender the description,</span>
+<span class="sd">            computing resources, sulurn, param and upload data.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;change&#39;</span><span class="p">:</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">submitted</span><span class="p">:</span>
@@ -565,13 +618,19 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">jobName</span><span class="p">]</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">hpcName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span><span class="s1">&#39;default_hpc&#39;</span><span class="p">]</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">hpc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hpcs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">hpcName</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">rerender</span><span class="p">([</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;computingResource&#39;</span><span class="p">,</span> <span class="s1">&#39;slurm&#39;</span><span class="p">,</span> <span class="s1">&#39;param&#39;</span><span class="p">,</span> <span class="s1">&#39;uploadData&#39;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rerender</span><span class="p">(</span>
+                    <span class="p">[</span>
+                        <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;computingResource&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;slurm&#39;</span><span class="p">,</span> <span class="s1">&#39;param&#39;</span><span class="p">,</span> <span class="s1">&#39;uploadData&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">on_change</span></div>
 
 <div class="viewcode-block" id="UI.onComputingResourceDropdownChange"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.UI.UI.onComputingResourceDropdownChange">[docs]</a>    <span class="k">def</span> <span class="nf">onComputingResourceDropdownChange</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">on_change</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            If the information in the computing resources dropdown is changed, update the hpcName and hpc, then rerender the description, computing resources, sulurn, param and upload data.</span>
+<span class="sd">            If the information in the computing resources</span>
+<span class="sd">            dropdown is changed, update the hpcName and hpc,</span>
+<span class="sd">            then rerender the description, computing resources,</span>
+<span class="sd">            sulurn, param and upload data.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;change&#39;</span><span class="p">:</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">submitted</span><span class="p">:</span>
@@ -584,7 +643,8 @@
     <span class="c1"># helpers</span>
 <div class="viewcode-block" id="UI.init"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.UI.UI.init">[docs]</a>    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialization helper function that sets default arguments. Runs when the UI is rendered.</span>
+<span class="sd">        Initialization helper function that</span>
+<span class="sd">        sets default arguments. Runs when the UI is rendered.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">silent</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
         <span class="k">with</span> <span class="n">silent</span><span class="p">:</span>
@@ -608,7 +668,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">resultStatus</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;output&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resultEvents</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;output&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resultLogs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;output&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">download</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;output&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;alert_output&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;result_output&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">download</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;output&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;alert_output&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;result_output&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
         <span class="c1"># main</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tab</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># information</span>
@@ -620,7 +683,7 @@
 <div class="viewcode-block" id="UI.rerender"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.UI.UI.rerender">[docs]</a>    <span class="k">def</span> <span class="nf">rerender</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="p">[]):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Clears and renders the specified components</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
 <span class="sd">            components (list): components to be rerendered</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -635,10 +698,12 @@
     <span class="c1"># data</span>
 <div class="viewcode-block" id="UI.get_data"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.UI.UI.get_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get data about the job submitted (template, computing resource used, slurm rules, param rules, user email)</span>
-<span class="sd">        </span>
-<span class="sd">        Returns: </span>
-<span class="sd">            dict : Information about the job submitted (template, computing resource used, slurm rules, param rules, user email)</span>
+<span class="sd">        Get data about the job submitted (template, computing resource used,</span>
+<span class="sd">        slurm rules, param rules, user email)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict : Information about the job submitted (template,</span>
+<span class="sd">            computing resource used, slurm rules, param rules, user email)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">out</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;job_template&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobTemplate</span><span class="p">[</span><span class="s1">&#39;dropdown&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
@@ -649,18 +714,22 @@
                 <span class="s1">&#39;cpu_per_task&#39;</span><span class="p">:</span> <span class="mi">1</span>
             <span class="p">},</span>
             <span class="s1">&#39;param&#39;</span><span class="p">:</span> <span class="p">{},</span>
-            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">[</span><span class="s1">&#39;checkbox&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">[</span>
+                <span class="s1">&#39;checkbox&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
         <span class="p">}</span>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm_configs</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span><span class="s1">&#39;slurm_input_rules&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span>
+                    <span class="s1">&#39;slurm_input_rules&#39;</span><span class="p">]:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
                     <span class="k">continue</span>  <span class="c1"># skip null value</span>
                 <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span><span class="s1">&#39;slurm_input_rules&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
                 <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm_integer_storage_unit_config</span><span class="p">:</span>
-                    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;slurm&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">])</span>
+                    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;slurm&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">])</span>
                 <span class="k">elif</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm_integer_time_unit_config</span><span class="p">:</span>
-                    <span class="n">seconds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unitTimeToSecond</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+                    <span class="n">seconds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unitTimeToSecond</span><span class="p">(</span>
+                        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
                     <span class="n">out</span><span class="p">[</span><span class="s1">&#39;slurm&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">secondsToTime</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">out</span><span class="p">[</span><span class="s1">&#39;slurm&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">slurm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
@@ -694,9 +763,10 @@
 <div class="viewcode-block" id="UI.unitTimeToSecond"><a class="viewcode-back" href="../../reference.html#cybergis_compute_client.UI.UI.unitTimeToSecond">[docs]</a>    <span class="k">def</span> <span class="nf">unitTimeToSecond</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper function that turns time in a specific unit into seconds</span>
-<span class="sd">        </span>
+
 <span class="sd">        Args:</span>
-<span class="sd">            unit (string): The unit of the time being passed (Minutes, Hours, or Days)</span>
+<span class="sd">            unit (string): The unit of the time being</span>
+<span class="sd">            passed (Minutes, Hours, or Days)</span>
 <span class="sd">            time (int): The time in that specific unit</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="s1">&#39;Minutes&#39;</span><span class="p">:</span>
