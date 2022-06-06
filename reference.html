@@ -44,9 +44,9 @@
 <li class="toctree-l1"><a class="reference internal" href="jobs.html">Example Jobs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="external.html">Related Projects</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">SDK Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-cybergis_compute_client.Client">cybergis_compute_client.Client module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-cybergis_compute_client.CyberGISCompute">cybergis_compute_client.CyberGISCompute module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-cybergis_compute_client.GlobusUtil">cybergis_compute_client.GlobusUtil module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cybergis-compute-client-client-module">cybergis_compute_client.Client module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cybergis-compute-client-cybergiscompute-module">cybergis_compute_client.CyberGISCompute module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cybergis-compute-client-globusutil-module">cybergis_compute_client.GlobusUtil module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-cybergis_compute_client.JAT">cybergis_compute_client.JAT module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-cybergis_compute_client.Job">cybergis_compute_client.Job module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-cybergis_compute_client.UI">cybergis_compute_client.UI module</a></li>
@@ -107,561 +107,14 @@
 <section id="sdk-documentation">
 <h1>SDK Documentation<a class="headerlink" href="#sdk-documentation" title="Permalink to this headline"></a></h1>
 <p>User reference for the CyberGIS-Compute Python SDK</p>
-<section id="module-cybergis_compute_client.Client">
-<span id="cybergis-compute-client-client-module"></span><h2>cybergis_compute_client.Client module<a class="headerlink" href="#module-cybergis_compute_client.Client" title="Permalink to this headline"></a></h2>
-<p>This module exposes Client class which creates a Client
-object that serves as a tool to make requests to different servers</p>
-<p class="rubric">Example</p>
-<p>client = Client()</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="cybergis_compute_client.Client.Client">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cybergis_compute_client.Client.</span></span><span class="sig-name descname"><span class="pre">Client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cgjobsup.cigi.illinois.edu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">443</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HTTPS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'v2'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/Client.html#Client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.Client.Client" title="Permalink to this definition"></a></dt>
-<dd><p>Client class
-An inteface that handles requests made to different servers</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>url</strong> (<em>str</em>) – url that needs to be accessed</p></li>
-<li><p><strong>port</strong> (<em>str</em>) – port of the Jupyter or Python interface</p></li>
-<li><p><strong>protocol</strong> (<em>str</em>) – Typically HTTP or HTTPS</p></li>
-<li><p><strong>suffix</strong> (<em>str</em>) – specify version. For e.g v2</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.Client.Client.url">
-<span class="sig-name descname"><span class="pre">url</span></span><a class="headerlink" href="#cybergis_compute_client.Client.Client.url" title="Permalink to this definition"></a></dt>
-<dd><p>url that needs to be accessed</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.Client.Client.port">
-<span class="sig-name descname"><span class="pre">port</span></span><a class="headerlink" href="#cybergis_compute_client.Client.Client.port" title="Permalink to this definition"></a></dt>
-<dd><p>port of the Jupyter or Python interface</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.Client.Client.suffix">
-<span class="sig-name descname"><span class="pre">suffix</span></span><a class="headerlink" href="#cybergis_compute_client.Client.Client.suffix" title="Permalink to this definition"></a></dt>
-<dd><p>specify version. For e.g v2</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.Client.Client.download">
-<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">localDir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/Client.html#Client.download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.Client.Client.download" title="Permalink to this definition"></a></dt>
-<dd><p>Downloads data from a request made to the specified uri
-onto the specifed path</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>uri</strong> (<em>str</em>) – uri of the server</p></li>
-<li><p><strong>body</strong> (<em>str</em>) – data that needs to be dowloaded</p></li>
-<li><p><strong>localDir</strong> (<em>str</em>) – path where the data needs to be downloaded</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>path where the data is stored</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.Client.Client.request">
-<span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uri</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/Client.html#Client.request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.Client.Client.request" title="Permalink to this definition"></a></dt>
-<dd><p>Returns data from a request made to the specified uri</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>methods</strong> (<em>str</em>) – type of request that needs to be</p></li>
-<li><p><strong>&quot;POST&quot;</strong> (<em>made. For e.g</em>) – </p></li>
-<li><p><strong>uri</strong> (<em>str</em>) – uri of the server</p></li>
-<li><p><strong>body</strong> (<em>str</em>) – data that needs to be sent</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>output thats returned by the server</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>JSON</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.Client.Client.upload">
-<span class="sig-name descname"><span class="pre">upload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/Client.html#Client.upload"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.Client.Client.upload" title="Permalink to this definition"></a></dt>
-<dd><p>Uploads data using a request made to the specified uri</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>uri</strong> (<em>str</em>) – uri of the server</p></li>
-<li><p><strong>body</strong> (<em>str</em>) – data that needs to be uploaded</p></li>
-<li><p><strong>file</strong> (<em>str</em>) – file that needs to be uploaded</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>output from the upload request to the server</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>JSON</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="cybergis-compute-client-client-module">
+<h2>cybergis_compute_client.Client module<a class="headerlink" href="#cybergis-compute-client-client-module" title="Permalink to this headline"></a></h2>
 </section>
-<section id="module-cybergis_compute_client.CyberGISCompute">
-<span id="cybergis-compute-client-cybergiscompute-module"></span><h2>cybergis_compute_client.CyberGISCompute module<a class="headerlink" href="#module-cybergis_compute_client.CyberGISCompute" title="Permalink to this headline"></a></h2>
-<p>This module exposes CyberGISCompute class which creates a CyberGISCompute
-object that serves as an entry point to the CyberGISX environment from a Python/Jupyter notebook.
-All interactions with the High Performance Computing (HPC) backend are performed using this object.</p>
-<p class="rubric">Example</p>
-<p>cybergis = CyberGISCompute(url=’localhost’, port=’3030’, protocol=’HTTP’, isJupyter=False)</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cybergis_compute_client.CyberGISCompute.</span></span><span class="sig-name descname"><span class="pre">CyberGISCompute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cgjobsup.cigi.illinois.edu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">443</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HTTPS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isJupyter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute" title="Permalink to this definition"></a></dt>
-<dd><p>CyberGISCompute class
-An inteface that handles all interactions with the HPC backend</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>url</strong> (<em>str</em>) – url that needs to be accessed</p></li>
-<li><p><strong>port</strong> (<em>str</em>) – port of the Jupyter or Python interface</p></li>
-<li><p><strong>protocol</strong> (<em>str</em>) – Typically HTTP or HTTPS</p></li>
-<li><p><strong>suffix</strong> (<em>str</em>) – specify version. For e.g v2</p></li>
-<li><p><strong>isJupyter</strong> (<em>booleans</em>) – set to True if you are using Jupyter environment</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.client">
-<span class="sig-name descname"><span class="pre">client</span></span><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.client" title="Permalink to this definition"></a></dt>
-<dd><p>Initialized using url(str), protocol(str), port(str) and suffix(str)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>Client object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.jupyterhubApiToken">
-<span class="sig-name descname"><span class="pre">jupyterhubApiToken</span></span><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.jupyterhubApiToken" title="Permalink to this definition"></a></dt>
-<dd><p>jupyterhub’s REST API token that can be used to authenticate the user</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>string</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.username">
-<span class="sig-name descname"><span class="pre">username</span></span><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.username" title="Permalink to this definition"></a></dt>
-<dd><p>username</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>string</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.isJupyter">
-<span class="sig-name descname"><span class="pre">isJupyter</span></span><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.isJupyter" title="Permalink to this definition"></a></dt>
-<dd><p>set to True if you are working in a jupyter environment else set it to False</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>boolean</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.ui">
-<span class="sig-name descname"><span class="pre">ui</span></span><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.ui" title="Permalink to this definition"></a></dt>
-<dd><p>Serves as entry point to UI functionality</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#cybergis_compute_client.UI.UI" title="cybergis_compute_client.UI.UI">UI</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.job">
-<span class="sig-name descname"><span class="pre">job</span></span><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.job" title="Permalink to this definition"></a></dt>
-<dd><p>Serves as entry point to access job interactions</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#cybergis_compute_client.Job.Job" title="cybergis_compute_client.Job.Job">Job</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.recentDownloadPath">
-<span class="sig-name descname"><span class="pre">recentDownloadPath</span></span><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.recentDownloadPath" title="Permalink to this definition"></a></dt>
-<dd><p>Gets the most recent download path from globus</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.jupyterhubHost">
-<span class="sig-name descname"><span class="pre">jupyterhubHost</span></span><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.jupyterhubHost" title="Permalink to this definition"></a></dt>
-<dd><p>static variable that stores the path to jupyterhubHost</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.create_job">
-<span class="sig-name descname"><span class="pre">create_job</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maintainer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'community_contribution'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hpc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hpcUsername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hpcPassword</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">printJob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.create_job"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.create_job" title="Permalink to this definition"></a></dt>
-<dd><p>Creates a job object
-Initializes instance CyberGISCompute using inputs from the client</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>maintainer</strong> (<em>str</em>) – Pre-packaged programs which can be configured and controlled remotely</p></li>
-<li><p><strong>backends</strong> (<em>and behave as a bridge between user and HPC</em>) – </p></li>
-<li><p><strong>hpc</strong> (<em>str</em>) – HPC backend that is being accessed. For e.g ‘keeling_community’</p></li>
-<li><p><strong>hpcUsername</strong> (<em>str</em>) – username for HPC backend</p></li>
-<li><p><strong>hpcPassword</strong> (<em>str</em>) – password for HPC backend</p></li>
-<li><p><strong>printJob</strong> (<em>str</em>) – prints the Job infortmation if set to True</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The new job instance that was initialized</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#cybergis_compute_client.Job.Job" title="cybergis_compute_client.Job.Job">Job</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.create_job_by_ui">
-<span class="sig-name descname"><span class="pre">create_job_by_ui</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">defaultJob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hello_world'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaultDataFolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaultRemoteResultFolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.create_job_by_ui"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.create_job_by_ui" title="Permalink to this definition"></a></dt>
-<dd><p>Displays the job submission UI</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>defaultJob</strong> (<em>str</em>) – Stores the default job that shows up on the UI</p></li>
-<li><p><strong>defaultDataFolder</strong> (<em>str</em>) – Stores the default input folder that shows up on the UI</p></li>
-<li><p><strong>defaultRemoteResultFolder</strong> (<em>str</em>) – Stores the default output folder that shows up on the UI</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.enable_jupyter">
-<span class="sig-name descname"><span class="pre">enable_jupyter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.enable_jupyter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.enable_jupyter" title="Permalink to this definition"></a></dt>
-<dd><p>Sets up jupyter environment in jupyterhubHost</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.get_job_by_id">
-<span class="sig-name descname"><span class="pre">get_job_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.get_job_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.get_job_by_id" title="Permalink to this definition"></a></dt>
-<dd><p>Returns Job object with the specified id</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>id</strong> (<em>int</em>) – Job id</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Returns</dt><dd><p>Job : Job object with the specified id otherwise None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.get_latest_created_job">
-<span class="sig-name descname"><span class="pre">get_latest_created_job</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.get_latest_created_job"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.get_latest_created_job" title="Permalink to this definition"></a></dt>
-<dd><p>Return the current job instance</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Latest Job object instance</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>JOB</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.get_slurm_usage">
-<span class="sig-name descname"><span class="pre">get_slurm_usage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.get_slurm_usage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.get_slurm_usage" title="Permalink to this definition"></a></dt>
-<dd><p>Prints slurm usage</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>raw</strong> (<em>boolean</em>) – set to True if you want the raw output</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Returns</dt><dd><p>JSON : Raw output if raw=True otherwise its printed or displayed directly into the interface</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.get_user_jupyter_globus">
-<span class="sig-name descname"><span class="pre">get_user_jupyter_globus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.get_user_jupyter_globus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.get_user_jupyter_globus" title="Permalink to this definition"></a></dt>
-<dd><p>Return the current job instance</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Latest Job object instance</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>JOB</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.is_login">
-<span class="sig-name descname"><span class="pre">is_login</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.is_login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.is_login" title="Permalink to this definition"></a></dt>
-<dd><p>Checks whether jupyterhubApi token exists or not</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>jupyterhubAPI existence check</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_container">
-<span class="sig-name descname"><span class="pre">list_container</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.list_container"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_container" title="Permalink to this definition"></a></dt>
-<dd><p>Prints a list of containers that the server supports</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>raw</strong> (<em>boolean</em>) – set to True if you want the raw output</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Returns</dt><dd><p>JSON : Raw output if raw=True otherwise its printed or displayed directly into the interface</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_git">
-<span class="sig-name descname"><span class="pre">list_git</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.list_git"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_git" title="Permalink to this definition"></a></dt>
-<dd><p>Prints a list of Git projects that the server supports</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>raw</strong> (<em>boolean</em>) – set to True if you want the raw output</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Returns</dt><dd><p>JSON : Raw output if raw=True otherwise its printed or displayed directly into the interface</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_hpc">
-<span class="sig-name descname"><span class="pre">list_hpc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.list_hpc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_hpc" title="Permalink to this definition"></a></dt>
-<dd><p>Prints a list of hpc resources that the server supports</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>raw</strong> (<em>boolean</em>) – set to True if you want the raw output</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Returns</dt><dd><p>JSON : Raw output if raw=True otherwise its printed or displayed directly into the interface</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_info">
-<span class="sig-name descname"><span class="pre">list_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_maintainer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_container</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.list_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_info" title="Permalink to this definition"></a></dt>
-<dd><p>Calls list_git, list_hpc, list_job with options to call list_maintainer and list_container</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>list_maintainer</strong> (<em>boolean</em>) – set to True if you want to call list_maintainer</p></li>
-<li><p><strong>list_container</strong> (<em>boolean</em>) – set to True of you want to call list</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Returns</dt><dd><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_job">
-<span class="sig-name descname"><span class="pre">list_job</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.list_job"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_job" title="Permalink to this definition"></a></dt>
-<dd><p>Prints a list of jobs that were submitted</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>raw</strong> (<em>boolean</em>) – set to True if you want the raw output</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Returns</dt><dd><p>JSON : Raw output if raw=True otherwise its printed or displayed into the interface</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_maintainer">
-<span class="sig-name descname"><span class="pre">list_maintainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.list_maintainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.list_maintainer" title="Permalink to this definition"></a></dt>
-<dd><p>prints a list of maintainers that the server supports</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>raw</strong> (<em>boolean</em>) – set to True if you want the raw output</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Returns</dt><dd><p>JSON : Raw output if raw=True otherwise its printed or displayed directly into the interface</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.CyberGISCompute.CyberGISCompute.login">
-<span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manualLogin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/CyberGISCompute.html#CyberGISCompute.login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute.login" title="Permalink to this definition"></a></dt>
-<dd><p>Authenticates the client’s jupyterhubApiToken and gives them access
-to CyberGISCompute features</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>manualLogin</strong> (<em>boolean</em>) – set to True if env variable and file login modes are not available</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Returns :</dt><dd><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="cybergis-compute-client-cybergiscompute-module">
+<h2>cybergis_compute_client.CyberGISCompute module<a class="headerlink" href="#cybergis-compute-client-cybergiscompute-module" title="Permalink to this headline"></a></h2>
 </section>
-<section id="module-cybergis_compute_client.GlobusUtil">
-<span id="cybergis-compute-client-globusutil-module"></span><h2>cybergis_compute_client.GlobusUtil module<a class="headerlink" href="#module-cybergis_compute_client.GlobusUtil" title="Permalink to this headline"></a></h2>
-<p>This module exposes GlobusUtil class which creates a GlobusUtil
-object that serves as an entry point to the Globus Data Transfer Tool</p>
-<p class="rubric">Example</p>
-<p>cybergis = GlobusUtil(compute)</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="cybergis_compute_client.GlobusUtil.GlobusUtil">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cybergis_compute_client.GlobusUtil.</span></span><span class="sig-name descname"><span class="pre">GlobusUtil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compute</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/GlobusUtil.html#GlobusUtil"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.GlobusUtil.GlobusUtil" title="Permalink to this definition"></a></dt>
-<dd><p>GlobusUtil class
-An inteface that handles all interactions with Globus Data Transfer Tool</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>compute</strong> (<a class="reference internal" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute" title="cybergis_compute_client.CyberGISCompute.CyberGISCompute"><em>CyberGISCompute</em></a>) – compute instance</p></li>
-<li><p><strong>user</strong> (<em>that was initialized by the</em>) – </p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cybergis_compute_client.GlobusUtil.GlobusUtil.compute">
-<span class="sig-name descname"><span class="pre">compute</span></span><a class="headerlink" href="#cybergis_compute_client.GlobusUtil.GlobusUtil.compute" title="Permalink to this definition"></a></dt>
-<dd><p>instance of CyberGISCompute</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#cybergis_compute_client.CyberGISCompute.CyberGISCompute" title="cybergis_compute_client.CyberGISCompute.CyberGISCompute">CyberGISCompute</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">that</span> <span class="pre">was</span> <span class="pre">initialized</span> <span class="pre">earlier</span></span></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.GlobusUtil.GlobusUtil.download">
-<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hpc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/GlobusUtil.html#GlobusUtil.download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.GlobusUtil.GlobusUtil.download" title="Permalink to this definition"></a></dt>
-<dd><p>Sends a download request to Globus API</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>endpoint</strong> (<em>str</em>) – endpoint that needs to be accessed</p></li>
-<li><p><strong>path</strong> (<em>str</em>) – path to endpoint</p></li>
-<li><p><strong>hpc</strong> (<em>str</em>) – hpc resource where the endpoint is</p></li>
-<li><p><strong>&quot;keeling-community&quot;</strong> (<em>located. For e.g</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cybergis_compute_client.GlobusUtil.GlobusUtil.upload">
-<span class="sig-name descname"><span class="pre">upload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hpc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/GlobusUtil.html#GlobusUtil.upload"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.GlobusUtil.GlobusUtil.upload" title="Permalink to this definition"></a></dt>
-<dd><p>Sends an upload request to Globus API</p>
-<p>Args:
-endpoint (str) : endpoint that needs to be accessed
-path (str) : path to endpoint
-hpc (str) : hpc resource where the
-endpoint is located. For e.g “keeling-community”</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="cybergis-compute-client-globusutil-module">
+<h2>cybergis_compute_client.GlobusUtil module<a class="headerlink" href="#cybergis-compute-client-globusutil-module" title="Permalink to this headline"></a></h2>
 </section>
 <section id="module-cybergis_compute_client.JAT">
 <span id="cybergis-compute-client-jat-module"></span><h2>cybergis_compute_client.JAT module<a class="headerlink" href="#module-cybergis_compute_client.JAT" title="Permalink to this headline"></a></h2>
@@ -1201,13 +654,18 @@ folder, and displays the status of the job.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.defaultRemoteResultFolder">
 <span class="sig-name descname"><span class="pre">defaultRemoteResultFolder</span></span><a class="headerlink" href="#cybergis_compute_client.UI.UI.defaultRemoteResultFolder" title="Permalink to this definition"></a></dt>
-<dd><p>Default remote location that results are saved to.</p>
+<dd><p>Default remote location</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>string</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">that</span> <span class="pre">results</span> <span class="pre">are</span> <span class="pre">saved</span> <span class="pre">to.</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.defaultDataFolder">
@@ -1234,51 +692,71 @@ folder, and displays the status of the job.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.slurm_integer_configs">
 <span class="sig-name descname"><span class="pre">slurm_integer_configs</span></span><a class="headerlink" href="#cybergis_compute_client.UI.UI.slurm_integer_configs" title="Permalink to this definition"></a></dt>
-<dd><p>Slurm configurations that can be stored as integers</p>
+<dd><p>Slurm configurations that can</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">be</span> <span class="pre">stored</span> <span class="pre">as</span> <span class="pre">integers</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.slurm_integer_storage_unit_config">
 <span class="sig-name descname"><span class="pre">slurm_integer_storage_unit_config</span></span><a class="headerlink" href="#cybergis_compute_client.UI.UI.slurm_integer_storage_unit_config" title="Permalink to this definition"></a></dt>
-<dd><p>Slurm configurations related to storage</p>
+<dd><p>Slurm configurations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">related</span> <span class="pre">to</span> <span class="pre">storage</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.slurm_integer_time_unit_config">
 <span class="sig-name descname"><span class="pre">slurm_integer_time_unit_config</span></span><a class="headerlink" href="#cybergis_compute_client.UI.UI.slurm_integer_time_unit_config" title="Permalink to this definition"></a></dt>
-<dd><p>Slurm configurations related to time units</p>
+<dd><p>Slurm configurations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">related</span> <span class="pre">to</span> <span class="pre">time</span> <span class="pre">units</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.slurm_integer_none_unit_config">
 <span class="sig-name descname"><span class="pre">slurm_integer_none_unit_config</span></span><a class="headerlink" href="#cybergis_compute_client.UI.UI.slurm_integer_none_unit_config" title="Permalink to this definition"></a></dt>
-<dd><p>Slurm configurations related to units other than time</p>
+<dd><p>Slurm configurations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">related</span> <span class="pre">to</span> <span class="pre">units</span> <span class="pre">other</span> <span class="pre">than</span> <span class="pre">time</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.slurm_string_option_configs">
 <span class="sig-name descname"><span class="pre">slurm_string_option_configs</span></span><a class="headerlink" href="#cybergis_compute_client.UI.UI.slurm_string_option_configs" title="Permalink to this definition"></a></dt>
-<dd><p>Slurm configurations for string operations</p>
+<dd><p>Slurm configurations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>list</p>
@@ -1287,9 +765,14 @@ folder, and displays the status of the job.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">for</span> <span class="pre">string</span> <span class="pre">operations</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.globus_filename">
 <span class="sig-name descname"><span class="pre">globus_filename</span></span><a class="headerlink" href="#cybergis_compute_client.UI.UI.globus_filename" title="Permalink to this definition"></a></dt>
-<dd><p>Output filename submitted to Globus (set when entered by the user)</p>
+<dd><p>Output filename submitted to</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>string</p>
@@ -1298,12 +781,32 @@ folder, and displays the status of the job.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.Globus">
+<span class="sig-name descname"><span class="pre">Globus</span></span><a class="headerlink" href="#cybergis_compute_client.UI.UI.Globus" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>set when entered by the user</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.jupyter_globus">
 <span class="sig-name descname"><span class="pre">jupyter_globus</span></span><a class="headerlink" href="#cybergis_compute_client.UI.UI.jupyter_globus" title="Permalink to this definition"></a></dt>
-<dd><p>Information about where the output data will be stored (container_home_path, endpoint, root_path)</p>
+<dd><p>Information about where the output data will be</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.stored">
+<span class="sig-name descname"><span class="pre">stored</span></span><a class="headerlink" href="#cybergis_compute_client.UI.UI.stored" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>container_home_path, endpoint, root_path</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1354,7 +857,8 @@ sets default arguments. Runs when the UI is rendered.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.render">
 <span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/UI.html#UI.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.UI.UI.render" title="Permalink to this definition"></a></dt>
-<dd><p>Render main UI by initializing, rendering, and displaying each component</p>
+<dd><p>Render main UI by initializing, rendering,
+and displaying each component</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1372,7 +876,8 @@ sets default arguments. Runs when the UI is rendered.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.renderDescription">
 <span class="sig-name descname"><span class="pre">renderDescription</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/UI.html#UI.renderDescription"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.UI.UI.renderDescription" title="Permalink to this definition"></a></dt>
-<dd><p>Display information about the job (job name, job description, HPC name, HPC description, estimated runtime)</p>
+<dd><p>Display information about the job (job name, job description,
+HPC name, HPC description, estimated runtime)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1384,13 +889,15 @@ sets default arguments. Runs when the UI is rendered.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.renderEmail">
 <span class="sig-name descname"><span class="pre">renderEmail</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/UI.html#UI.renderEmail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.UI.UI.renderEmail" title="Permalink to this definition"></a></dt>
-<dd><p>Displays a checkbox that lets the user recieve an email on job status and input their email.</p>
+<dd><p>Displays a checkbox that lets the user recieve an email
+on job status and input their email.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.renderJobTemplate">
 <span class="sig-name descname"><span class="pre">renderJobTemplate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/UI.html#UI.renderJobTemplate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.UI.UI.renderJobTemplate" title="Permalink to this definition"></a></dt>
-<dd><p>Display a dropdown of jobs to run. Update jobTemplate when the dropdown changes.</p>
+<dd><p>Display a dropdown of jobs to run.
+Update jobTemplate when the dropdown changes.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1421,7 +928,8 @@ rerender the download section when it is.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cybergis_compute_client.UI.UI.renderSlurm">
 <span class="sig-name descname"><span class="pre">renderSlurm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cybergis_compute_client/UI.html#UI.renderSlurm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cybergis_compute_client.UI.UI.renderSlurm" title="Permalink to this definition"></a></dt>
-<dd><p>Configures Slurm input rules (default value, min, m), allows the user to input custom input rules if they want.</p>
+<dd><p>Configures Slurm input rules (default value, min, m),
+allows the user to input custom input rules if they want.</p>
 </dd></dl>
 
 <dl class="py method">
